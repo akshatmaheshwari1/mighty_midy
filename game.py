@@ -1,5 +1,6 @@
 import pygame
 import sys
+from ship import Ship
 
 TILE_SIZE = 64
 pygame.init()
@@ -11,7 +12,7 @@ topleft = pygame.image.load('Assets/tile_01.png')
 topright = pygame.image.load('Assets/tile_03.png')
 bottomleft = pygame.image.load('Assets/tile_33.png')
 bottomright = pygame.image.load('Assets/tile_35.png')
-ship = pygame.image.load('Assets/ship.png')
+ship = Ship()
 #water
 def draw_background():
     for x in range(screen_rect.height//water_rect.width):
@@ -33,7 +34,8 @@ while True:
             (x,y) = pygame.mouse.get_pos()
 
     draw_background()
-    screen.blit(ship, (x-33, y-56))
+    ship.move(x,y)
+    ship.draw(screen)
     pygame.display.flip()
 
 
