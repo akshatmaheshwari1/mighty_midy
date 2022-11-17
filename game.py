@@ -37,7 +37,7 @@ while True:
     collision = pygame.sprite.collide_rect(ship, island)
     if collision:
         print("collision")
-        
+
     island.draw(screen)
     ship.draw(screen)
     pygame.display.flip()
